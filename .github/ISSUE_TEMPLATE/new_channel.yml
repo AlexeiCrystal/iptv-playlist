@@ -1,27 +1,35 @@
-name: "[New channel] Add a new TV channel to the playlist"
-description: "Template for requesting addition of a new TV channel to the M3U playlist"
+name: "Add new TV channel"
+description: "Request addition of a new TV channel to the M3U playlist"
+title: "[New channel] Channel name"
 labels: ["New channel"]
 body:
   - type: markdown
     attributes:
       value: |
         **Please provide the following details about the new TV channel**
-        
-        Note: Fields marked with * are required
 
   - type: input
     id: channel-name
     attributes:
-      label: "TV channel name*"
+      label: "TV channel name"
       description: "The official name of the TV channel (e.g., 'Discovery Channel HD')"
       placeholder: "Enter channel name..."
+    validations:
+      required: true
+
+  - type: input
+    id: channel-theme
+    attributes:
+      label: "TV channel theme"
+      description: "Specify the channel's category/theme (e.g., News, Sports, Movies, Kids, Music, etc.)"
+      placeholder: "Examples: News, Sports, Entertainment, Documentary..."
     validations:
       required: true
 
   - type: textarea
     id: regions-languages
     attributes:
-      label: "Regions and languages*"
+      label: "Regions and languages"
       description: "Specify which regions/countries this channel targets and what languages it broadcasts in"
       placeholder: |
         Examples:
