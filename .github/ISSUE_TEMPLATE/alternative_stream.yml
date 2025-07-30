@@ -1,0 +1,60 @@
+name: "Add alternative stream"
+description: "Request addition of alternative stream links for an existing TV channel"
+title: "[Alternative stream] Channel name"
+labels: ["Alternative stream"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Add alternative stream sources for an existing TV channel**
+
+  - type: input
+    id: channel-name
+    attributes:
+      label: "TV channel name"
+      description: "The exact name of the existing TV channel"
+      placeholder: "Enter channel name as it appears in the playlist..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: stream-link
+    attributes:
+      label: "Stream link or playlist block"
+      description: "Provide new .m3u8 link or complete channel block from another playlist"
+      placeholder: |
+        Examples:
+        - "https://new.example.com/stream.m3u8"
+        - Or paste complete channel block:
+          "#EXTINF:-1 tvg-id="ChannelID" tvg-name="Channel Name" group-title="Group",Channel Name\nhttp://example.com/stream.m3u8"
+    validations:
+      required: true
+
+  - type: checkbox
+    id: has-archive
+    attributes:
+      label: "Archive available"
+      description: "Check if this stream includes archive/video-on-demand content"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: quality
+    attributes:
+      label: "Stream quality"
+      description: "Select the approximate stream quality"
+      options:
+        - "Unknown"
+        - "Low (SD)"
+        - "Medium (HD)"
+        - "High (FHD/4K)"
+    validations:
+      required: false
+
+  - type: checkbox
+    id: recommend-replacement
+    attributes:
+      label: "Recommend as primary stream source"
+      description: "Check if you believe this stream should replace the current primary stream source (better stability, quality, or features)"
+    validations:
+      required: false
