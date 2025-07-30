@@ -1,0 +1,36 @@
+name: "[New channel] Add new TV channel"
+description: "Use this template to suggest adding a new TV channel to the M3U playlist."
+title: "[New channel] - Add new TV channel to playlist"
+labels: ["New channel"]
+body:
+  - type: input
+    id: channel_name
+    attributes:
+      label: "Channel Name (required)"
+      description: "Enter the exact name of the TV channel you want to add. This is mandatory."
+      placeholder: "Example: National Geographic"
+      required: true
+
+  - type: textarea
+    id: regions_languages
+    attributes:
+      label: "Regions and Languages (required)"
+      description: "Please describe the target region(s) and language(s) of the channel. For example, 'Russia, Russian language' or 'USA, English and Spanish'. This information helps to categorize the channel properly."
+      placeholder: "Example: Russia, Russian language"
+      required: true
+
+  - type: textarea
+    id: stream_links
+    attributes:
+      label: "Stream Links / Playlist Blocks (optional)"
+      description: "Provide one or more streaming links in .m3u8 format or ready-made playlist blocks (.m3u). Separate multiple links or blocks with new lines."
+      placeholder: "Example:\nhttp://example.com/stream1.m3u8\n#EXTINF:-1,Example channel\nhttp://example.com/stream2.m3u"
+      required: false
+
+  - type: textarea
+    id: icon_suggestions
+    attributes:
+      label: "Icon Suggestions (optional)"
+      description: "Paste URLs to icon images or upload images as suggestions for channel icons. Icons help visually identify the channel in the playlist."
+      placeholder: "Example: https://example.com/icon.png"
+      required: false
