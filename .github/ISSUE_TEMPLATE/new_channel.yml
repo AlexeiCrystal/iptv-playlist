@@ -1,36 +1,50 @@
-name: "[New channel] Add new TV channel"
-description: "Use this template to suggest adding a new TV channel to the M3U playlist."
-title: "[New channel] - Add new TV channel to playlist"
+name: "[New channel] Add a new TV channel to the playlist"
+description: "Template for requesting addition of a new TV channel to the M3U playlist"
 labels: ["New channel"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please provide the following details about the new TV channel**
+        
+        Note: Fields marked with * are required
+
   - type: input
-    id: channel_name
+    id: channel-name
     attributes:
-      label: "Channel Name (required)"
-      description: "Enter the exact name of the TV channel you want to add. This is mandatory."
-      placeholder: "Example: National Geographic"
+      label: "TV channel name*"
+      description: "The official name of the TV channel (e.g., 'Discovery Channel HD')"
+      placeholder: "Enter channel name..."
+    validations:
       required: true
 
   - type: textarea
-    id: regions_languages
+    id: regions-languages
     attributes:
-      label: "Regions and Languages (required)"
-      description: "Please describe the target region(s) and language(s) of the channel. For example, 'Russia, Russian language' or 'USA, English and Spanish'. This information helps to categorize the channel properly."
-      placeholder: "Example: Russia, Russian language"
+      label: "Regions and languages*"
+      description: "Specify which regions/countries this channel targets and what languages it broadcasts in"
+      placeholder: |
+        Examples:
+        - "International (English)"
+        - "Russia (Russian)"
+        - "Latin America (Spanish)"
+    validations:
       required: true
 
   - type: textarea
-    id: stream_links
+    id: stream-links
     attributes:
-      label: "Stream Links / Playlist Blocks (optional)"
-      description: "Provide one or more streaming links in .m3u8 format or ready-made playlist blocks (.m3u). Separate multiple links or blocks with new lines."
-      placeholder: "Example:\nhttp://example.com/stream1.m3u8\n#EXTINF:-1,Example channel\nhttp://example.com/stream2.m3u"
-      required: false
+      label: "Stream links/playlist blocks"
+      description: "Provide one or more working .m3u8 links or ready-made blocks from other M3U playlists (if available)"
+      placeholder: |
+        Examples:
+        - "https://example.com/stream.m3u8"
+        - Or paste complete channel block from another playlist:
+          "#EXTINF:-1 tvg-id="ChannelID" tvg-name="Channel Name" group-title="Group",Channel Name\nhttp://example.com/stream.m3u8"
 
   - type: textarea
-    id: icon_suggestions
+    id: icon-suggestions
     attributes:
-      label: "Icon Suggestions (optional)"
-      description: "Paste URLs to icon images or upload images as suggestions for channel icons. Icons help visually identify the channel in the playlist."
-      placeholder: "Example: https://example.com/icon.png"
-      required: false
+      label: "Icon suggestions"
+      description: "You can upload images (drag & drop) or provide links to possible channel logos"
+      placeholder: "Paste image URL or attach files here..."
